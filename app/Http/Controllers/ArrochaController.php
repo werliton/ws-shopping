@@ -11,16 +11,16 @@ class ArrochaController extends Controller
     //
     public function index()
     {
-        // $users = User::all();
+        $users = User::all();
 
-        $users = Cache::remember('users.all', 60, function () {
-            return User::all();
-        });
-        return $users;
+        // $users = Cache::remember('users.all', 60, function () {
+        //     return User::all();
+        // });
+        // return $users;
         // dd($users);
 
-        // return Inertia::render('arrocha', [
-        //     'users' => $users
-        // ]);
+        return Inertia::render('arrocha', [
+            'users' => $users
+        ]);
     }
 }
