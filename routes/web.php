@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArrochaController;
+use App\Http\Controllers\ShoppingController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -9,6 +10,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/arrocha', [ArrochaController::class, 'index'])->name('arrocha');
+
+Route::get('/shopping', [ShoppingController::class, 'index'])->name('shopping');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
